@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+@import url(reset.css);
+@import url(font.css);
+
+html {font-size: 62.5%;}
+body {background: #1e1e1e;}
+body {
+    --mainColor:#C8733E;
+    --subColor1:#fff;
+    --subColor2:#996240;
+    --subColor3:#d9d9d9;
+    --pointColor1:#FF7017;
+}
+
+
+#wrap {padding: 0 5rem;}
+header {display: flex; justify-content: space-between; margin-top: 26rem; align-items: flex-end;}
+header .student li {margin-bottom: 1rem;}
+header .student .tit {font-size: 1.4rem; color: var(--subColor3);font-family: 'Pretendard-Light'; display: block; margin-bottom: -0.5rem; letter-spacing: 0;}
+header .student .text {color: var(--subColor1); font-family: "Inria Sans", serif; font-weight: 400; font-size: 2rem;}
+header .student .text span {font-size: 3rem; color: var(--mainColor);}
+
+header h1 strong {
+    font-family: "Monomaniac One", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2.4rem;
+    color: var(--mainColor);
+    letter-spacing: 0.8rem;
+  }
+header h1 a {color: #fff; display: flex; flex-direction: column; align-items: center;}
+
+header h1 a strong {margin-top: 1rem;}
+header h1 a strong span {position: relative; }
+header h1 a strong span:nth-child(1)::before {content: ""; position: absolute; width: 4px; height: 4px; border-radius: 50%; background:var(--pointColor1); left: 50%; transform: translateX(-6px);}
+header h1 a strong span:nth-child(2)::before {content: ""; position: absolute; width: 4px; height: 4px; border-radius: 50%; background:var(--subColor1); left: 50%; transform: translateX(-6px);}
+
+header h1 a em {font-size: 1.4rem; color: var(--subColor2); font-style: normal;font-family: 'Pretendard-Light'; letter-spacing: 0.2rem; margin-top: 0.2rem; }
+
+header .btn_box {height: 40px; display: flex; gap: 3rem; }
+header .btn_box .hamburger {border: 1px solid #000; display: flex;flex-wrap: wrap; gap: 3px; width: 22px; align-items: flex-start;height: 20px; transition: 0.2s;}
+header .btn_box .hamburger span {background: var(--subColor3); width: 5px; height: 5px; transition: 0.3s;}
+header .btn_box .hamburger span:nth-child(3) {background: var(--pointColor1);}
+header .btn_box .hamburger span:nth-child(4) {background: var(--pointColor1);}
+header .btn_box .hamburger span:nth-child(8) {background: var(--pointColor1);}
+
+header .btn_box .hamburger:hover {transform: scale(1.4);}
+header .btn_box .hamburger:hover span {animation:hamburger 0.2s infinite alternate linear; }
+
+header .btn_box .hamburger span:nth-child(1) {animation-delay: 0.1s;}
+header .btn_box .hamburger span:nth-child(2) {animation-delay: 0.2s;}
+header .btn_box .hamburger span:nth-child(3) {animation-delay: 0.3s;}
+header .btn_box .hamburger span:nth-child(4) {animation-delay: 0.4s;}
+header .btn_box .hamburger span:nth-child(5) {animation-delay: 0.5s;}
+header .btn_box .hamburger span:nth-child(6) {animation-delay: 0.6s;}
+header .btn_box .hamburger span:nth-child(7) {animation-delay: 0.7s;}
+header .btn_box .hamburger span:nth-child(8) {animation-delay: 0.8s;}
+header .btn_box .hamburger span:nth-child(9) {animation-delay: 0.9s;}
+@keyframes hamburger {
+    0% {background: var(--subColor3);}
+    100% {background: var(--pointColor1)}
+}
+
+
+#section1 {margin-top: 14rem;}
+#section1 ul {display: flex; flex-wrap: wrap; border: 1px solid #000; gap: 3rem;  }
+#section1 ul li {width: 30%; padding-top: 30%; background: #000; flex-grow: 1; }
+#section1 ul li a {}
