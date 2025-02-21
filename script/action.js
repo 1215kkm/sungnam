@@ -22,3 +22,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+$('.hamburger').click(function(){
+    $('.menu_box').toggleClass('on');
+    $('.hamburger').toggleClass('on');
+})
+
+document.addEventListener('touchstart', function() {
+    try {
+        let stylesheets = document.styleSheets;
+        for (let i = 0; i < stylesheets.length; i++) {
+            let rules = stylesheets[i].cssRules || stylesheets[i].rules;
+            for (let j = 0; j < rules.length; j++) {
+                if (rules[j].selectorText && rules[j].selectorText.includes(':hover')) {
+                    stylesheets[i].deleteRule(j);
+                }
+            }
+        }
+    } catch (e) {}
+}, { once: true });
