@@ -6,7 +6,7 @@
     <title>성남 그린컴퓨터 아카데미 포트폴리오</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="light">
     <div id="wrap">
         <header>
             <div class="student">
@@ -73,6 +73,30 @@
                     <li>
                         <a href="#"></a>
                     </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
                 </ul>
             </section>
         </div>
@@ -80,5 +104,32 @@
 
     <script src="script/jquery-3.7.1.js"></script>
     <script src="script/action.js"></script>
+    <script>
+        (document).ready(function(){
+        // var Layer_1d = $('#Layer_1 path').attr('d');
+
+        $('.btn_view').click(function() {
+        var Layer_1d = $('#Layer_1 path').attr('d','M0,0C0,100,-50,100,100,100.0s0,100.357,100,100.786V0H2.5z')
+            $('#Layer_1').attr('d','Layer_1d');
+            $('.svg_wrap').css({width:'100%'});
+            $('.btn_view').fadeOut('fast');
+            $('.navi_m, .btn_close').fadeIn('slow');
+             $ ('#bg_motion01 circle').animate ({
+                    cy:'60'
+                });
+
+        });
+
+        $('.btn_close').click(function() {
+        var Layer_1dOut = $('#Layer_1 path').attr('d','M2.5,0C46.072,0,47.857,36.927,75,45.499s51.5,10.357,51.5,36.786V0H2.5z')
+            $('#Layer_1').attr('d','Layer_1dOut');
+            $('.svg_wrap').css({width:'500px'})
+            $('.btn_view').fadeIn('slow');
+            $('.navi_m, .btn_close').fadeOut('fast');$ ('#bg_motion01 circle').animate ({
+                    cy:'128.25'
+                });
+        });
+    })
+    </script>
 </body>
 </html>
