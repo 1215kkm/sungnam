@@ -4,7 +4,7 @@
 @import url(font.css);
 
 html {font-size: 10px;}
-body {
+body.dark {
     --bg1: #1e1e1e;
     --mainColor:#C8733E;
     --subColor1:#fff;
@@ -13,7 +13,7 @@ body {
     --pointColor1:#FF7017;
 }
 body.light {
-    --bg1: #1e1e1e;
+    --bg1: #e9e9e9;
     --mainColor:#C8733E;
     --subColor1:#1e1e1e;
     --subColor2:#996240;
@@ -21,7 +21,7 @@ body.light {
     --pointColor1:#FF7017;
 }
 
-
+body {background: var(--bg1); transition: 0.2s linear;}
 #wrap {padding: 0 10rem;}
 header {display: flex; justify-content: space-between; padding-top: 13.5vw; align-items: flex-end; position: relative;}
 header .student li {margin-bottom: 1rem;}
@@ -37,7 +37,7 @@ header h1 strong {
     color: var(--mainColor);
     letter-spacing: 0.8rem;
   }
-header h1 a {color: #fff; display: flex; flex-direction: column; align-items: center;}
+header h1 a {color: var(--subColor1); display: flex; flex-direction: column; align-items: center;}
 
 header h1 a strong {margin-top: 1rem;}
 header h1 a strong span {position: relative; }
@@ -47,7 +47,7 @@ header h1 a strong span:nth-child(2)::before {content: ""; position: absolute; w
 header h1 a em {font-size: 1.4rem; color: var(--subColor2); font-style: normal;font-family: 'Pretendard-Light'; letter-spacing: 0.2rem; margin-top: 0.2rem; }
 
 header .btn_box {height: 40px; display: flex; gap: 3rem; }
-header .btn_box .hamburger {border: 1px solid #000; display: flex;flex-wrap: wrap; gap: 3px; width: 22px; align-items: flex-start;height: 20px; transition: 0.2s;}
+header .btn_box .hamburger {display: flex;flex-wrap: wrap; gap: 3px; width: 22px; align-items: flex-start;height: 20px; transition: 0.2s;}
 header .btn_box .hamburger span {background: var(--subColor3); width: 5px; height: 5px; transition: 0.3s;}
 header .btn_box .hamburger span:nth-child(3) {background: var(--pointColor1);}
 header .btn_box .hamburger span:nth-child(4) {background: var(--pointColor1);}
@@ -69,7 +69,7 @@ header .btn_box .hamburger span:nth-child(9) {animation-delay: 0.9s;}
     0% {background: var(--subColor3);}
     100% {background: var(--pointColor1)}
 }
-
+header .btn_box .bright {display: flex; align-items: start;}
 
 #section1 {margin-top: 7.3vw;}
 #section1 ul {display: flex; flex-wrap: wrap; gap: 5rem; justify-content:  space-between; }
