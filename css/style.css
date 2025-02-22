@@ -141,14 +141,14 @@ header .btn_box .bright {display: flex; align-items: start; padding-top: 1px;}
 
 /* span이 반짝이는 효과 */
 @keyframes blink {
-    0% { opacity: 0; background:var(--mainColor);; }
-    50% { opacity: 1; background:var(--mainColor); }
+    0% { opacity: 0; background:var(--mainColor);}
+    60% { opacity: 1; background:var(--mainColor); }
     100% { opacity: 0; background:var(--mainColor); }
 }
 
 /* 애니메이션이 활성화될 때 */
 .bg_span span.active {
-    animation: blink 1s ease-in-out;
+    animation: blink 0.8s linear;
 }
 
 

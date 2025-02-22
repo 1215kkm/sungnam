@@ -81,7 +81,7 @@ $(document).ready(function () {
             // 애니메이션 끝나면 클래스 제거
             setTimeout(() => {
                 $(this).removeClass("active");
-            }, 1000);
+            }, 1200);
         });
     });
 });
