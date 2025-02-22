@@ -30,6 +30,36 @@ $('.hamburger').click(function(){
     $('.menuwrap').fadeToggle();
 })
 
+$(document).ready(function () {
+    let startX = 0;
+
+    $(document).on("touchstart", function (event) {
+        startX = event.touches[0].clientX; // 터치 시작 위치 저장
+    });
+
+    
+    $(window).on("scroll", function () {
+        
+        let scrollY = $(window).scrollTop();
+        const screenWidth = $(window).width();
+        let hamburger = $(".hamburger");
+
+            if (scrollY > 100) {
+                // 터치 시작 위치를 기준으로 왼쪽/오른쪽 스크롤 판단
+                if (startX < screenWidth / 2) {
+                    // 왼쪽에서 스크롤 시작 → 왼손잡이
+                    hamburger.removeClass("righthand").addClass("lefthand");
+                } else {
+                    // 오른쪽에서 스크롤 시작 → 오른손잡이
+                    hamburger.removeClass("lefthand").addClass("righthand");
+                }
+            } else {
+                // 스크롤이 100px 이하이면 원래 자리로 돌아감
+                hamburger.removeClass("lefthand righthand").css("top", "");
+            }
+    })
+});
+
 document.addEventListener('touchstart', function() {
     try {
         let stylesheets = document.styleSheets;
