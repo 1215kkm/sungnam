@@ -60,6 +60,33 @@ $(document).ready(function () {
     })
 });
 
+
+$(document).ready(function () {
+    let $bgSpan = $(".bg_span");
+
+    // 5x5 = 25개의 span 생성
+    for (let i = 0; i < 300; i++) {
+        $bgSpan.append("<span></span>");
+    }
+
+    // 햄버거 버튼 클릭 시 span이 반짝이는 효과 적용
+    $(".hamburger").on("click", function () {
+        $(".bg_span span").each(function (index) {
+            let row = Math.floor(index / 30);  // 행 번호
+            let delay = row * 0.04;  // 위에서 아래로 순차적 딜레이 적용
+
+            $(this).css("animation-delay", delay + "s");
+            $(this).addClass("active");
+
+            // 애니메이션 끝나면 클래스 제거
+            setTimeout(() => {
+                $(this).removeClass("active");
+            }, 1000);
+        });
+    });
+});
+
+
 document.addEventListener('touchstart', function() {
     try {
         let stylesheets = document.styleSheets;
