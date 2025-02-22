@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 $('.hamburger').click(function(){
     $('.menu_box').toggleClass('on');
     $('.hamburger').toggleClass('on');
+    $('.menuwrap').fadeToggle();
 })
 
 document.addEventListener('touchstart', function() {
