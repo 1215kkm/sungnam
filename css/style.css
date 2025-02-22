@@ -85,10 +85,10 @@ header .btn_box {height: 40px; display: flex; gap: 3rem; position: relative; z-i
     100% {opacity: 1;}
 }
 
-.hamburger.lefthand {position: fixed; left: 2rem; bottom: 5rem; border: 1px solid #000; }
-.hamburger.lefthand nav.menu  {bottom: 16px; left: 16px;top: auto;}
-.hamburger.righthand {position: fixed; left: calc(100vw - 2rem - 27px); /* 27=hamburger size */bottom: 5rem; border: 1px solid #000; ;}
-.hamburger.righthand nav.menu  {bottom: 16px; right: 16px;top: auto;}
+.hamburger.lefthand {position: fixed; left: 2rem; bottom: 18rem; border: 1px solid #000; }
+.hamburger.lefthand nav.menu  {bottom: 16px; left: 16px; top: auto;}
+.hamburger.righthand {position: fixed; left: calc(100vw - 2rem - 27px); /* 27=hamburger size */bottom: 18rem; border: 1px solid #000; ;}
+.hamburger.righthand nav.menu  {bottom: 16px; right: 16px; top: auto;}
 
 .hamburger nav.menu .gnb {padding: 2rem; box-sizing: border-box;}
 .hamburger nav.menu .gnb li {line-height: 4; font-size: 1.8rem;font-family: 'Pretendard-Light';  text-align: center; border-bottom: 1px solid #d84141;}
