@@ -223,7 +223,7 @@ header .btn_box .bright {display: flex; align-items: start; padding-top: 1px;}
 
 /* 가로 모드 적용을 위한 클래스 추가 */
 .hamburger.on nav.menu.horizontal {
-    width: 70vw; /* 가로로 확장 */
+    width: calc(100vw - (2 * (80px + 36px + 30px + 13px + 28px))); /* 가로로 확장 */
     height: 200px; /* 높이 조절 */
     display: flex;
     flex-direction: row;
