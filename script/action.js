@@ -39,6 +39,28 @@ function updateMenuLayout() {
     }
 }
 
+/* pc에서만 menu의 가로세로모드
+
+function updateMenuLayout() {
+    let menu = $("nav.menu");
+
+    // 화면 너비가 860px 이하일 때만 적용
+    if (window.innerWidth <= 860) {
+        if (window.innerWidth > window.innerHeight) {
+            // 가로 모드 → 메뉴 가로 정렬
+            menu.addClass("horizontal");
+        } else {
+            // 세로 모드 → 기존 상태 유지
+            menu.removeClass("horizontal");
+        }
+    } else {
+        // 860px 초과일 경우 원래 상태 유지
+        menu.removeClass("horizontal");
+    }
+} 
+    
+*/
+
 // 페이지 로드 시 한 번 실행
 updateMenuLayout();
 

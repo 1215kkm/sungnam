@@ -85,15 +85,10 @@ header .btn_box {height: 40px; display: flex; gap: 3rem; position: relative; z-i
     100% {opacity: 1;}
 }
 
-.hamburger.lefthand {position: fixed; left: 3rem; bottom: 3rem; box-shadow: 0 0 10px rgba(0,0,0,0.3); background: var(--bg1); animation: hamAni 0.5s forwards;transform: rotate(-360deg);}
-.hamburger.lefthand nav.menu  {bottom: 16px; left: 16px; top: auto;}
-.hamburger.righthand {position: fixed; left: calc(100vw - 6rem); /* 27=hamburger size */bottom: 3rem; box-shadow: 0 0 10px rgba(0,0,0,0.3); background: var(--bg1); animation: hamAni 0.5s forwards; transform: rotate(360deg);}
-.hamburger.righthand nav.menu  {bottom: 16px; right: 16px; top: auto;}
 
-@keyframes hamAni {
-    0% {bottom: -30rem;}
-    100% {bottom: 3rem;}
-}
+.hamburger.pc nav.menu {position: fixed; right: 2rem; top: 3rem;}
+
+
 
 .hamburger nav.menu .gnb {padding: 2rem; box-sizing: border-box;}
 .hamburger nav.menu .gnb li {line-height: 4; font-size: 1.8rem;font-family: 'Pretendard-Light';  text-align: center; border-bottom: 1px solid #d84141;}
@@ -164,8 +159,6 @@ header .btn_box .bright {display: flex; align-items: start; padding-top: 1px;}
 
 
 
-
-
 #section1 {margin-top: 7.3vw;}
 #section1 ul {display: flex; flex-wrap: wrap; gap: 5rem; justify-content:  space-between; }
 #section1 ul li {width: 20%; padding-top: 23%; background: var(--bg3); flex-grow: 1; }
@@ -186,6 +179,18 @@ header .btn_box .bright {display: flex; align-items: start; padding-top: 1px;}
     #wrap {padding: 0 3rem;}
     #section1 {margin-top: 8rem;}
     #section1 ul {gap: 3rem;}
+
+
+        
+    .hamburger.lefthand {position: fixed; left: 3rem; bottom: 3rem; box-shadow: 0 0 10px rgba(0,0,0,0.3); background: var(--bg1); animation: hamAni 0.5s forwards;transform: rotate(-360deg);}
+    .hamburger.lefthand nav.menu  {bottom: 16px; left: 16px; top: auto;}
+    .hamburger.righthand {position: fixed; left: calc(100vw - 6rem); /* 27=hamburger size */bottom: 3rem; box-shadow: 0 0 10px rgba(0,0,0,0.3); background: var(--bg1); animation: hamAni 0.5s forwards; transform: rotate(360deg);}
+    .hamburger.righthand nav.menu  {bottom: 16px; right: 16px; top: auto;}
+
+    @keyframes hamAni {
+        0% {bottom: -30rem;}
+        100% {bottom: 3rem;}
+    }
 }
 @media screen and (max-width: 768px) {
     #wrap {padding: 0 2.2rem;}
