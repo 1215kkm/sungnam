@@ -62,9 +62,9 @@ header .btn_box {height: 40px; display: flex; gap: 3rem; position: relative; z-i
 
 
 
-.hamburger { transition: 0.2s; cursor: pointer; position: relative; transition: 0.5s;/*  background: rgba(0,0,0,0); */ padding: 3px;}
+.hamburger { transition: 0.2s; cursor: pointer; position: relative; transition: 0.5s;/*  background: rgba(0,0,0,0); */ padding: 3px; transform-origin: center;}
 
-.hamburger .ham_piece {display: flex;flex-wrap: wrap; gap: 3px; width: 22px; align-items: flex-start;height: 20px;}
+.hamburger .ham_piece {display: flex;flex-wrap: wrap; gap: 3px; width: 21px; align-items: flex-start;height: 21px;}
 .hamburger .ham_piece span {background: var(--subColor3); width: 5px; height: 5px; transition: 0.3s;}
 .hamburger .ham_piece span:nth-child(3) {background: var(--pointColor1);}
 .hamburger .ham_piece span:nth-child(4) {background: var(--pointColor1);}
@@ -78,17 +78,22 @@ header .btn_box {height: 40px; display: flex; gap: 3rem; position: relative; z-i
 /* 메뉴 */
 .hamburger nav.menu {position: absolute; top: 16px; right: 16px; width: 0; height: 0; background: var(--bg1); transition: .4s; overflow: hidden; overflow: auto; z-index: 7; }
 
-.hamburger.on nav.menu {width: 200px; height: 80vh;  transition: .8s cubic-bezier(.53,.48,0,1.01); background:var(--bg2);}
+.hamburger.on nav.menu {width: 200px; height: 70vh; transition: .8s cubic-bezier(.53,.48,0,1.01); background:var(--bg2);}
 .hamburger.on nav.menu .gnb { animation: naveOn 1s forwards; animation-delay: 0.5s; opacity: 0;}
 @keyframes naveOn {
     0% {opacity: 0;}
     100% {opacity: 1;}
 }
 
-.hamburger.lefthand {position: fixed; left: 2rem; bottom: 18rem; border: 1px solid #000; }
+.hamburger.lefthand {position: fixed; left: 3rem; bottom: 3rem; box-shadow: 0 0 10px rgba(0,0,0,0.3); background: var(--bg1); animation: hamAni 0.5s forwards;transform: rotate(-360deg);}
 .hamburger.lefthand nav.menu  {bottom: 16px; left: 16px; top: auto;}
-.hamburger.righthand {position: fixed; left: calc(100vw - 2rem - 27px); /* 27=hamburger size */bottom: 18rem; border: 1px solid #000; ;}
+.hamburger.righthand {position: fixed; left: calc(100vw - 6rem); /* 27=hamburger size */bottom: 3rem; box-shadow: 0 0 10px rgba(0,0,0,0.3); background: var(--bg1); animation: hamAni 0.5s forwards; transform: rotate(360deg);}
 .hamburger.righthand nav.menu  {bottom: 16px; right: 16px; top: auto;}
+
+@keyframes hamAni {
+    0% {bottom: -30rem;}
+    100% {bottom: 3rem;}
+}
 
 .hamburger nav.menu .gnb {padding: 2rem; box-sizing: border-box;}
 .hamburger nav.menu .gnb li {line-height: 4; font-size: 1.8rem;font-family: 'Pretendard-Light';  text-align: center; border-bottom: 1px solid #d84141;}
@@ -96,7 +101,7 @@ header .btn_box {height: 40px; display: flex; gap: 3rem; position: relative; z-i
 .hamburger nav.menu .gnb li a i {display: flex; align-items: center; gap: 1rem; }
 .hamburger nav.menu .gnb li a svg {fill:var(--svgColor1)}
 
-.menuwrap {position: fixed; width: 100%; height: 100vh; background:  var(--menuColor1); opacity: 0.9; backdrop-filter: blur(50px); top: 0; left: 0; display: none; z-index: 4;} 
+.menuwrap {position: fixed; width: 100%; height: 100vh; background:  var(--menuColor1); opacity: 0.9; /* backdrop-filter: blur(10px) */; top: 0; left: 0; display: none; z-index: 4;} 
 
 /* header .btn_box .hamburger:hover {transform: scale(1.4);} */
 header .btn_box .hamburger.on .ham_piece span
@@ -141,14 +146,14 @@ header .btn_box .bright {display: flex; align-items: start; padding-top: 1px;}
 
 /* span이 반짝이는 효과 */
 @keyframes blink {
-    0% { opacity: 0; background:var(--mainColor);}
-    60% { opacity: 1; background:var(--mainColor); }
-    100% { opacity: 0; background:var(--mainColor); }
+    0% { opacity: 0; background:var(--mainColor); transform: scale(1);}
+    30% { opacity: 1; background:var(--mainColor); transform: scale(1);}
+    100% { opacity: 0; background:var(--mainColor); transform: scale(1);}
 }
 
 /* 애니메이션이 활성화될 때 */
 .bg_span span.active {
-    animation: blink 0.8s linear;
+    animation: blink 0.5s linear;
 }
 
 
@@ -209,3 +214,36 @@ header .btn_box .bright {display: flex; align-items: start; padding-top: 1px;}
         color: white;
     }
 } */
+
+
+/* 가로 모드 적용을 위한 클래스 추가 */
+.hamburger.on nav.menu.horizontal {
+    width: 70vw; /* 가로로 확장 */
+    height: 200px; /* 높이 조절 */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.hamburger.on nav.menu.horizontal .gnb {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 1rem;
+}
+
+.hamburger.on nav.menu.horizontal .gnb li {
+    display: inline-block;
+    line-height: 1;
+    border-bottom: none;
+}
+
+.hamburger.on nav.menu.horizontal .gnb li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
