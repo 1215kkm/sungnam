@@ -152,7 +152,7 @@ $(document).ready(function () {
                 diagonalIndex = (29 - row) + col;
             } else if (blinkDirection === "right-bottom") {
                 // 우측 하단 → 좌측 상단 (↖️)
-                diagonalIndex = (9 - row) - col;
+                diagonalIndex = (29 - row) - col;
             } else {
                 // 우측 상단 → 좌측 하단 (↙️) (기본)
                 diagonalIndex = (9 - col) + row;
