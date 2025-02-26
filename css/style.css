@@ -3,10 +3,10 @@
 @import url(reset.css);
 @import url(font.css);
 
-html {font-size: 10px;}
+html {font-size: 10px; user-select: none;}
 body.dark {
     --bg1: #1e1e1e;
-    --bg2: #1e1e1e;
+    --bg2: #000;
     --bg3: #e9e9e9;
     --mainColor:#C8733E;
     --subColor1:#fff;
@@ -33,12 +33,18 @@ body {background: var(--bg1); transition: 0.2s linear;}
 #wrap {padding: 0 10rem;}
 header {display: flex; justify-content: space-between; padding-top: 13.5vw; align-items: flex-end; position: relative;}
 header .student {position: relative; z-index: 3;}
-header .student li {margin-bottom: 1rem;}
+header .student li {margin-bottom: 1rem; position: relative;}
+header .student li .icon_bul {position: absolute; width: 25px; right: 14px; top: 20px;}
 header .student .tit {font-size: 1.4rem; color: var(--subColor3);font-family: 'Pretendard-Light'; display: block; margin-bottom: -0.5rem; letter-spacing: 0;}
-header .student .text {color: var(--subColor1); font-family: "Inria Sans", serif; font-weight: 400; font-size: 2rem;}
+header .student .text {color: var(--subColor1); font-family: "Pretendard-Light", serif; font-weight: 400; font-size: 2rem;}
 header .student .text span {font-size: 3rem; color: var(--mainColor);}
 
 header h1 {position: relative; z-index: 3;}
+header h1 .logo {width: 157px; height: 108px;background: url('../images/wawa.png');  background-position: -157px 0;}
+
+header h1.on .logo { background-position: -304px 0;}
+
+
 header h1 strong {
     font-family: "Monomaniac One", serif;
     font-weight: 400;
@@ -58,7 +64,7 @@ header h1 a em {font-size: 1.4rem; color: var(--subColor2); font-style: normal;f
 
 
 
-header .btn_box {height: 40px; display: flex; gap: 3rem; position: relative; z-index: 7;}
+header .btn_box {height: 40px; display: flex; gap: 3rem; position: relative; z-index: 7; ;}
 
 
 
@@ -155,16 +161,45 @@ header .btn_box .bright {display: flex; align-items: start; padding-top: 1px;}
 
 
 
-
-
-
-
 #section1 {margin-top: 7.3vw;}
 #section1 ul {display: flex; flex-wrap: wrap; gap: 5rem; justify-content:  space-between; }
-#section1 ul li {width: 20%; padding-top: 23%; background: var(--bg3); flex-grow: 1; }
+#section1 ul li {width: 20%; padding-top: 23%; /* background: var(--bg3); */ flex-grow: 1; position: relative;}
 #section1 ul li a {}
+#section1 ul li a img {width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;}
+
+#section1 ul li .name {position: absolute; font-size: 1.2rem; color: var(--subColor1); background: var(--bg2); display: flex; justify-content: center; align-items: center; padding:2px 4px; z-index: 3; right: 0; bottom: 0;}
+#section1 ul li .name span {margin-left: .5rem;}
+
 
 .hamma1,.hamma2,.hamma3,.hamma4 {transition: .2s ease-in;}
+
+
+footer {padding: 10rem 2rem; font-size: 1.8rem; color: var(--subColor3); text-align: center; font-family: 'Monomaniac'; word-break: keep-all; }
+footer .info {}
+footer .info h1 {font-size: 2rem; color: var(--pointColor1);}
+footer .info address {font-style: normal;}
+footer .info .academy {display: flex; gap: 1vw; justify-content: center; }
+footer .info a {color: var(--subColor3); padding: 3rem;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media screen and (max-width: 1600px) {
     #wrap {padding: 0 8rem;}
@@ -200,16 +235,17 @@ header .btn_box .bright {display: flex; align-items: start; padding-top: 1px;}
     header h1 strong {letter-spacing: 0.6rem;}
     header .btn_box {position: absolute; top: 20px; right: 0vw; gap: 4vw;}
     #section1 ul {gap: 1.5rem;}
-    #section1 ul li {width: 30%; padding-top: 30%; }
+    #section1 ul li {width: 45%; padding-top: 35%; }
     
+    footer .info a {padding:4rem 3vw;}
 }
 
 @media screen and (max-width: 470px) {
-    #section1 ul li {width: 30%; padding-top: 30%; }
+    #section1 ul li {width: 40%; padding-top: 40%; }
 }
 @media screen and (max-width: 350px) {
     header h1 strong {letter-spacing: 0.4rem;}
-    #section1 ul li {padding-top: 40%; }
+    #section1 ul li {width: 80%; padding-top: 60%; }
 
 }
 
@@ -224,6 +260,7 @@ header .btn_box .bright {display: flex; align-items: start; padding-top: 1px;}
 /* 가로 모드 적용을 위한 클래스 추가 */
 .hamburger.on nav.menu.horizontal {
     width: calc(100vw - (2 * (80px + 36px + 30px + 13px + 28px))); /* 가로로 확장 */
+    min-width: 450px;
     height: 200px; /* 높이 조절 */
     display: flex;
     flex-direction: row;
@@ -237,7 +274,7 @@ header .btn_box .bright {display: flex; align-items: start; padding-top: 1px;}
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 0rem;
     padding: 1rem;
 }
 
@@ -245,10 +282,15 @@ header .btn_box .bright {display: flex; align-items: start; padding-top: 1px;}
     display: inline-block;
     line-height: 1;
     border-bottom: none;
+    border-right: 1px solid #d84141;
+}
+.hamburger.on nav.menu.horizontal .gnb li:last-child {
+    border-right: 0px solid #d84141;
 }
 
 .hamburger.on nav.menu.horizontal .gnb li a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 3rem;
 }
