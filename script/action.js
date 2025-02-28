@@ -229,6 +229,37 @@ $(document).ready(function() {
             }
         });
 
+        $(".className").each(function() {
+            let $this = $(this);
+            let offsetTop = $this.offset().top; // 요소의 위치
+            let windowHeight = $(window).height(); // 현재 창 높이
+            let scrollTop = $(window).scrollTop(); // 현재 스크롤 위치
+
+            if (scrollTop + windowHeight > offsetTop + 100) { 
+                // 스크롤 내릴 때 실행
+                if (!$this.hasClass("animated")) {
+                    $this.removeClass("animated-reset").addClass("animated");
+                    let text = $this.data("original-text") || $this.text(); // 원래 텍스트 저장
+                    $this.data("original-text", text);
+                    $this.empty();
+                    
+                    $.each(text.split(""), function(i, char) {
+                        let letter = $("<span>")
+                            .text(char)
+                            .addClass("animated-text")
+                            .css("animation-delay", (i * 0.1) + "s"); // 0.1초씩 지연
+
+                        $this.append(letter);
+                    });
+                }
+            } else {
+                // 스크롤 올릴 때 애니메이션 취소
+                if ($this.hasClass("animated")) {
+                    $this.removeClass("animated").addClass("animated-reset").empty().text($this.data("original-text"));
+                }
+            }
+        });
+
         $(".major").each(function() {
             let $this = $(this);
 
@@ -276,7 +307,9 @@ $('footer').load('include/footer.html', function(){})
 
 
 
-//subpage
+//subpage 
+
+//우리반 플레이버튼
 
 $(document).ready(function(){
     $('.btn_play').click(function(event){
