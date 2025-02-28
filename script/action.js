@@ -283,7 +283,7 @@ $(document).ready(function(){
         event.preventDefault();
         
         let $audio = $(this).siblings('audio')[0];
-        let $icon = $(this).find('img');
+        let $icon = $(this).find('svg');
         
         if ($audio.paused) {
             $audio.play();
