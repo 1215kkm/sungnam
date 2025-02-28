@@ -254,7 +254,7 @@ footer .info a {color: var(--subColor3); padding: 2rem; border: 1px solid #333; 
 .ban #section_sub ul li {position: relative; height: 300px; margin-bottom: 8vw; border-radius: 5px; overflow: hidden;;}
 .ban #section_sub ul li .className {font-size: 2rem; color: #fff; padding:0.7rem 1.5rem; position: absolute; z-index: 2; background: rgba(0,0,0,0.9); border-radius: 0 7px 0 0; bottom: 2rem;}
 .ban #section_sub ul li .className .animated-text {letter-spacing: 0em;}
-.ban #section_sub ul li a {display: block; height: 100%; position: relative; pointer-events: none;}
+.ban #section_sub ul li a {display: block; height: 100%; position: relative;}
 .ban #section_sub ul li a > img {width: 100%; height: 100%; object-fit: cover;}
 .ban #section_sub ul li a img audio {}
 .ban #section_sub ul li a .btn_play {position: absolute; width: 40px; height: 40px; background: #fff; top: 1rem; right: 1rem; border-radius:  50%; padding: 10px; box-shadow: 10px 10px 30px rgba(0,0,0,0.6); animation: tong 0.3s infinite alternate; cursor: pointer;}
