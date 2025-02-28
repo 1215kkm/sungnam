@@ -163,14 +163,39 @@ header .btn_box .bright {display: flex; align-items: start; padding-top: 1px;}
 
 #section1 {margin-top: 7.3vw;}
 #section1 ul {display: flex; flex-wrap: wrap; gap: 5rem; justify-content:  space-between; }
-#section1 ul li {width: 20%; padding-top: 23%; /* background: var(--bg3); */ flex-grow: 1; position: relative;border: 1px solid rgba(255,255,255,0.1);}
+#section1 ul li {width: 20%; padding-top: 23%; /* background: var(--bg3); */ flex-grow: 1; position: relative;border: 1px solid rgba(255,255,255,0.1); overflow: hidden;}
 #section1 ul li a {}
 #section1 ul li a img {width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;}
 
 #section1 ul li .name {position: absolute; font-size: 1.2rem; color: #fff; background: #000; display: flex; justify-content: center; align-items: center; padding:2px 8px; z-index: 3; right: 0; bottom: 0; }
 #section1 ul li .name span {margin-left: .5rem; }
 
-.animated-text {display: inline-block; animation: nameAni .8s forwards ease-in-out; opacity: 0; letter-spacing: -0.3em;}
+
+
+
+
+
+
+
+
+.major {position: absolute; font-size: 1.2rem; color: aquamarine; display: flex; justify-content: center; align-items: center; padding:2px 8px; z-index: 3; left: 0; bottom: -40px; text-align: left;;}
+.major.non {color: var(--pointColor1)}
+
+li:hover .major .animated-major {animation: major .5s forwards ease-in-out; opacity: 0; position: relative;}
+
+
+@keyframes major {
+    0% {bottom: 0px;}
+    10% {bottom: 50px; opacity: 1;}
+    100% {bottom: 40px; opacity: 1;}
+}
+
+
+
+
+
+
+.animated-text {display: inline-block; animation: nameAni .4s forwards ease-in-out; opacity: 0; letter-spacing: -0.3em;}
 @keyframes nameAni {
     0% { opacity: 0;}
     20% { opacity: 1;}
@@ -180,8 +205,10 @@ header .btn_box .bright {display: flex; align-items: start; padding-top: 1px;}
     100% { opacity: 1;}
 }
 
+
 /* 애니메이션이 사라지는 상태 */
-.animated-reset .animated-text {
+.animated-reset .animated-text,
+.animated-reset .animated-major {
     opacity: 0 !important;
     animation: none !important;
 }
@@ -213,7 +240,36 @@ footer .info a {color: var(--subColor3); padding: 3rem;}
 
 
 
+/* subpage */
 
+
+/* 우리반 */
+
+.ban {max-width: 1000px; margin: 0 auto;}
+.ban .major {font-size: 1.8rem; position: absolute; bottom: 0; z-index: 3; background: #000;}
+.ban .major .period {font-family: 'Pretendard-Light';}
+.ban #section_sub {padding-top: 2vw;}
+.ban #section_sub ul {}
+.ban #section_sub ul li {position: relative; height: 350px; margin-bottom: 10vw;}
+.ban #section_sub ul li .className {font-size: 3rem; color: #fff; padding: 1vw 0;}
+.ban #section_sub ul li a {display: block; height: 100%; position: relative;}
+.ban #section_sub ul li a > img {width: 100%; height: 100%; object-fit: cover;}
+.ban #section_sub ul li a img audio {}
+.ban #section_sub ul li a .btn_play {position: absolute; width: 40px; height: 40px; background: #fff; bottom: 2rem; right: 2rem; border-radius:  50%; padding: 10px;}
+.ban #section_sub ul li a .btn_play img {width: 100%; padding: 2px;}
+
+
+.playing {
+    animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+}
 
 
 

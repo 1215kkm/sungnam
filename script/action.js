@@ -228,6 +228,32 @@ $(document).ready(function() {
                 }
             }
         });
+
+        $(".major").each(function() {
+            let $this = $(this);
+
+            $('#section1 ul li').mouseenter(function(){
+                if (!$this.hasClass("animated")) {
+                    $this.removeClass("animated-reset").addClass("animated");
+                    let text = $this.data("original-text") || $this.text(); // 원래 텍스트 저장
+                    $this.data("original-text", text);
+                    $this.empty();
+                    
+                    $.each(text.split(""), function(i, char) {
+                        let letter = $("<span>")
+                            .text(char)
+                            .addClass("animated-major")
+                            .css("animation-delay", (i * 0.02) + "s"); // 0.1초씩 지연
+
+                        $this.append(letter);
+                    });
+                }
+            }).mouseleave(function(){
+                if ($this.hasClass("animated")) {
+                    $this.removeClass("animated").addClass("animated-reset").empty().text($this.data("original-text"));
+                }
+            })
+        });
     }
 
     // 페이지 로드 시 실행
@@ -243,6 +269,40 @@ $(document).ready(function() {
 
 
 $('footer').load('include/footer.html', function(){})
+
+
+
+
+
+
+
+//subpage
+
+$(document).ready(function(){
+    $('.btn_play').click(function(event){
+        event.preventDefault();
+        
+        let $audio = $(this).siblings('audio')[0];
+        let $icon = $(this).find('img');
+        
+        if ($audio.paused) {
+            $audio.play();
+            $icon.addClass('playing');
+        } else {
+            $audio.pause();
+            $audio.currentTime = 0;
+            $icon.removeClass('playing');
+        }
+    });
+});
+
+
+
+
+
+
+
+
 
 
     
