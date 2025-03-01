@@ -31,15 +31,19 @@ body.light {
 
 body {background: var(--bg1); transition: 0.2s linear;}
 #wrap {padding: 0 10rem;}
-header {display: flex; justify-content: space-between; padding-top: 9vw; align-items: flex-end; position: relative;}
+header {padding-top: 4vw; position: relative;}
+
+header .topset{display: flex; justify-content: space-between; padding-top: 8vw; align-items: flex-end;}
+
 header .student {position: relative; z-index: 3;}
 header .student li {margin-bottom: 1rem; position: relative;}
 header .student li .icon_bul {position: absolute; width: 25px; right: 14px; top: 20px;}
 header .student .tit {font-size: 1.4rem; color: var(--subColor3);font-family: 'Pretendard-Light'; display: block; margin-bottom: -0.5rem; letter-spacing: 0;}
-header .student .text {color: var(--subColor1); font-family: "Pretendard-Light", serif; font-weight: 400; font-size: 2rem;}
+header .student .text {color: var(--subColor1); font-weight: 400; font-size: 2rem;}
+header .student span.text {font-family: "Pretendard-Light", serif; font-weight: 400; }
 header .student .text span {font-size: 3rem; color: var(--mainColor);}
 
-header h1 {position: relative; z-index: 3;}
+header h1 {position: absolute; z-index: 3; left: 50%; transform: translateX(-50%);}
 header h1 .logo {width: 157px; height: 108px;background: url('../images/wawa.png');  background-position: -157px 0;}
 
 header h1.on .logo { background-position: -304px 0;}
@@ -61,6 +65,13 @@ header h1 a strong span:nth-child(1)::before {content: ""; position: absolute; w
 header h1 a strong span:nth-child(2)::before {content: ""; position: absolute; width: 4px; height: 4px; border-radius: 50%; background:var(--subColor1); left: 50%; transform: translateX(-6px);}
 
 header h1 a em {font-size: 1.4rem; color: var(--subColor2); font-style: normal;font-family: 'Pretendard-Light'; letter-spacing: 0.2rem; margin-top: 0.2rem; }
+
+
+header .menu_pc {}
+header .menu_pc .gnb {display: flex;}
+header .menu_pc .gnb li {}
+header .menu_pc .gnb li a {color: var(--subColor3); font-size: 2rem; font-family: "Montserrat", serif; display: flex; align-items: center; padding:  1rem 1vw; gap: 0.5rem;}
+header .menu_pc .gnb li a img {}
 
 
 
@@ -176,8 +187,6 @@ header .btn_box .bright {display: flex; align-items: start; padding-top: 1px;}
 
 
 
-
-
 .major {position: absolute; font-size: 1.2rem; color: aquamarine; display: flex; justify-content: center; align-items: center; padding:2px 8px; z-index: 3; left: 0; bottom: -40px; text-align: left;;}
 .major.non {color: var(--pointColor1)}
 
@@ -263,7 +272,9 @@ footer .info a {color: var(--subColor3); padding: 2rem; border: 1px solid #333; 
     100% {transform: scale(1.1);}
 }
 .ban #section_sub ul li a .btn_play svg {width: 80%; padding: 2px; }
-.ban #section_sub ul li a .btn_play svg path {}
+.ban #section_sub ul li a .btn_play svg path {stroke: #999;}
+.ban #section_sub ul li a .btn_play svg.playing {}
+.ban #section_sub ul li a .btn_play svg.playing path {stroke: var(--svgColor1);}
 
 
 .playing {
@@ -282,6 +293,83 @@ footer .info a {color: var(--subColor3); padding: 2rem; border: 1px solid #333; 
 
 
 
+/* 우리반 이퀄라이져 효과 */
+.equalizer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100px;
+    height: 30px;
+    opacity: 0;
+    transition: opacity 0.1s;
+    position: absolute; top: 20px; right: 100px;
+    z-index: 3;
+}
+
+.equalizer span {
+    display: inline-block;
+    width: 3px;
+    background: #fff;
+    animation: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.active.equalizer {
+    opacity: 1;
+}
+
+.active.equalizer span {
+    animation: equalizerAnimation 0.5s infinite ease-in-out;
+}
+
+.active.equalizer span:nth-child(1) { animation-delay: 0s; }
+.active.equalizer span:nth-child(2) { animation-delay: 0.2s; }
+.active.equalizer span:nth-child(3) { animation-delay: 0.4s; }
+.active.equalizer span:nth-child(4) { animation-delay: 0.6s; }
+.active.equalizer span:nth-child(5) { animation-delay: 0.8s; }
+.active.equalizer span:nth-child(6) { animation-delay: 0.2s; }
+.active.equalizer span:nth-child(7) { animation-delay: 0.3s; }
+.active.equalizer span:nth-child(8) { animation-delay: 0.1s; }
+.active.equalizer span:nth-child(10) { animation-delay: 0.5s; }
+.active.equalizer span:nth-child(11) { animation-delay: 0.7s; }
+.active.equalizer span:nth-child(12) { animation-delay: 0.3s; }
+.active.equalizer span:nth-child(13) { animation-delay: 0.6s; }
+.active.equalizer span:nth-child(14) { animation-delay: 0.2s; }
+.active.equalizer span:nth-child(15) { animation-delay: 0.7s; }
+
+@keyframes equalizerAnimation {
+    0%, 100% { height: 5px; }
+    50% { height: 20px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================반응형============================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -289,16 +377,19 @@ footer .info a {color: var(--subColor3); padding: 2rem; border: 1px solid #333; 
     #wrap {padding: 0 8rem;}
     #section1 ul li {width: 30%; padding-top: 30%; }
 }
+
 @media screen and (max-width: 1200px) {
     #wrap {padding: 0 5rem;}
+    header h1 {top: 0; }
     #section1 ul {gap: 3rem;}
     #section1 ul li {width: 25%; padding-top: 25%; }
 }
+
 @media screen and (max-width: 900px) {
     #wrap {padding: 0 3rem;}
+    header nav.menu_pc {display: none;}
     #section1 {margin-top: 8rem;}
     #section1 ul {gap: 3rem;}
-
 
         
     .hamburger.lefthand {position: fixed; left: 3rem; bottom: 3rem; box-shadow: 0 0 10px rgba(0,0,0,0.3); background: var(--bg1); animation: hamAni 0.5s forwards;transform: rotate(-360deg);}
@@ -315,12 +406,14 @@ footer .info a {color: var(--subColor3); padding: 2rem; border: 1px solid #333; 
     /* 우리반 */
     .ban #section_sub ul li {margin-bottom: 50px;}
 }
+
 @media screen and (max-width: 768px) {
     #wrap {padding: 0 2.5rem;}
-    header {justify-content: center;}
+    header {justify-content: center; height: 230px;}
     header .student {position: absolute; top: 20px; left: 0vw;}
-    header h1 {margin-top: 110px;  /* position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); */}
-    header h1 strong {letter-spacing: 0.6rem;}
+    header h1 {margin-top: 110px;  /* position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); */ width: 100%;}
+    header h1 strong {letter-spacing: 1.3vw;}
+    header .topset {margin-top: 100px;}
     header .btn_box {position: absolute; top: 20px; right: 0vw; gap: 4vw;}
     #section1 ul {gap: 2rem;}
     #section1 ul li {width: 45%; padding-top: 35%; }
@@ -331,6 +424,7 @@ footer .info a {color: var(--subColor3); padding: 2rem; border: 1px solid #333; 
 @media screen and (max-width: 470px) {
     #section1 ul li {width: 40%; padding-top: 40%; }
 }
+
 @media screen and (max-width: 350px) {
     header h1 strong {letter-spacing: 0.4rem;}
     #section1 ul li {width: 80%; padding-top: 60%; }

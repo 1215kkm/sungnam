@@ -1,29 +1,34 @@
 $('header').load('include/header.html', function(){
-        
-    $(document).ready(function () {
-        let $button = $(".bright");
-        let $body = $("body");
-        let $lightIcon = $(".light");
-        let $darkIcon = $(".dark");
-        const LIGHT_CLASS = "light";
-        const DARK_CLASS = "dark";
     
-        // 초기 상태 설정
-        $body.addClass(DARK_CLASS);
-        $darkIcon.hide();
     
-        // 버튼 클릭 이벤트 추가
-        $button.on("click", function () {
-            if ($body.hasClass(DARK_CLASS)) {
-                $body.removeClass(DARK_CLASS).addClass(LIGHT_CLASS);
-                $darkIcon.show();
-                $lightIcon.hide();
-            } else {
-                $body.removeClass(LIGHT_CLASS).addClass(DARK_CLASS);
-                $darkIcon.hide();
-                $lightIcon.show();
-            }
-        });
+    let headerHtml = $('header nav.menu .gnb').clone();
+    $('.menu_pc').html(headerHtml);
+
+
+
+
+    let $button = $(".bright");
+    let $body = $("body");
+    let $lightIcon = $(".light");
+    let $darkIcon = $(".dark");
+    const LIGHT_CLASS = "light";
+    const DARK_CLASS = "dark";
+
+    // 초기 상태 설정
+    $body.addClass(DARK_CLASS);
+    $darkIcon.hide();
+
+    // 버튼 클릭 이벤트 추가
+    $button.on("click", function () {
+        if ($body.hasClass(DARK_CLASS)) {
+            $body.removeClass(DARK_CLASS).addClass(LIGHT_CLASS);
+            $darkIcon.show();
+            $lightIcon.hide();
+        } else {
+            $body.removeClass(LIGHT_CLASS).addClass(DARK_CLASS);
+            $darkIcon.hide();
+            $lightIcon.show();
+        }
     });
     
 
@@ -317,20 +322,32 @@ $(document).ready(function(){
         
         let $audio = $(this).siblings('audio')[0];
         let $icon = $(this).find('svg');
+        let $equalizer = $(this).siblings('.equalizer');
         
-        if ($audio.paused) {
+        // 클릭한 버튼이 현재 활성화 상태인지 확인
+        let isPlaying = $icon.hasClass('playing');
+        
+        // 모든 오디오 정지 및 아이콘, 이퀄라이저 초기화
+        $('audio').each(function(){
+            this.pause();
+            this.currentTime = 0;
+        });
+        $('.btn_play svg').removeClass('playing');
+        $('.equalizer').removeClass('active');
+        
+        // 클릭한 오디오만 재생 또는 정지
+        if (!isPlaying) {
             $audio.play();
             $icon.addClass('playing');
+            $equalizer.addClass('active');
         } else {
             $audio.pause();
             $audio.currentTime = 0;
             $icon.removeClass('playing');
+            $equalizer.removeClass('active');
         }
     });
 });
-
-
-
 
 
 
